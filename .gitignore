@@ -1,5 +1,7 @@
 bin/
 obj/
+Migrations/
+/dungEcommerce.API/appsettings.Development.json
 
 
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
@@ -25,3 +27,19 @@ obj/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Mobile
+node_modules/
+.expo/
+dist/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+
+# macOS
+.DS_Store
