@@ -1,7 +1,6 @@
 import { styled } from "@mui/material/styles";
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 import { IconButton, Toolbar, Typography } from "@mui/material";
-import React from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 
 interface Props {
@@ -19,6 +18,7 @@ function AppBar({ open, handleDrawerOpen }: Props) {
     shouldForwardProp: (prop) => prop !== "open",
   })<AppBarProps>(({ theme, open }) => ({
     zIndex: theme.zIndex.drawer + 1,
+    backgroundColor:'#062740',
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,

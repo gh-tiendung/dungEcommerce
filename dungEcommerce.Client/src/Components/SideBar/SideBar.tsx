@@ -1,15 +1,10 @@
-import { CSSObject, styled, Theme, useTheme } from "@mui/material/styles";
+import { CSSObject, styled, Theme } from "@mui/material/styles";
 import MuiDrawer from "@mui/material/Drawer";
-import React from "react";
-import {
-  IconButton
-} from "@mui/material";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListMenu from "./ListMenu";
+import MenuHeader from "./MenuHeader";
 
-interface Props{
-  open:boolean;
+interface Props {
+  open: boolean;
   handleDrawerClose: any;
 }
 
@@ -36,16 +31,6 @@ const closedMixin = (theme: Theme): CSSObject => ({
   },
 });
 
-const DrawerHeader = styled("div")(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "flex-end",
-  padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  //...theme.mixins.toolbar,
-  minHeight: '64px',
-}));
-
 const Drawer = styled(MuiDrawer, {
   shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
@@ -62,26 +47,11 @@ const Drawer = styled(MuiDrawer, {
     "& .MuiDrawer-paper": closedMixin(theme),
   }),
 }));
-function SideBar({open, handleDrawerClose}:Props) {
-  // const [open, setOpen] = React.useState(false);
-
-  // const handleDrawerClose = () => {
-  //   setOpen(false);
-  // };
-  const theme = useTheme();
-
+function SideBar({ open, handleDrawerClose }: Props) {
   return (
     <Drawer variant="permanent" open={open}>
-      <DrawerHeader>
-        <IconButton onClick={handleDrawerClose}>
-          {theme.direction === "rtl" ? (
-            <ChevronRightIcon />
-          ) : (
-            <ChevronLeftIcon />
-          )}
-        </IconButton>
-      </DrawerHeader>
-      <ListMenu open={open}/>
+      <MenuHeader handleDrawerClose={handleDrawerClose} />
+      <ListMenu open={open} />
     </Drawer>
   );
 }
